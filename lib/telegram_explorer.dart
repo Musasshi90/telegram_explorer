@@ -29,28 +29,16 @@ class TelegramExplorer {
     } else {
       List<FileItem> list = [];
       list.add(gallery);
-      Directory appDocDir = await getApplicationDocumentsDirectory();
       list.add(FileItem(
-          title: 'Application Documents',
-          description: 'Browse application documents',
-          path: appDocDir.path,
+          title: 'Select from files',
+          description: 'Browse the files',
+          path: "",
           isFolder: true,
           extension: '',
-          isStorage: false,
+          isStorage: true,
+          isIOSFileExplorer: true,
           fileSize: 0,
           isRecentFile: false));
-      Directory? downloadDir = await getDownloadsDirectory();
-      if (downloadDir != null) {
-        list.add(FileItem(
-            title: 'Downloads',
-            description: 'Browse downloads',
-            path: downloadDir.path,
-            isFolder: true,
-            extension: '',
-            isStorage: false,
-            fileSize: 0,
-            isRecentFile: false));
-      }
       return list;
     }
   }
@@ -58,5 +46,9 @@ class TelegramExplorer {
   Future<FileItem?> openDirectory(FileItem fileItem) async {
     return FileItem.getFileItem(
         await TelegramExplorerPlatform.instance.openDirectory(fileItem));
+  }
+
+  Future<String?> openIOSBrowser() async {
+    return await TelegramExplorerPlatform.instance.openBrowser();
   }
 }

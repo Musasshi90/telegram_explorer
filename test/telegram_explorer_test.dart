@@ -22,6 +22,12 @@ class MockTelegramExplorerPlatform
     // TODO: implement openDirectory
     return Future.value('43');
   }
+
+  @override
+  Future<String?> openBrowser() {
+    // TODO: implement openBrowser
+    return Future.value('44');
+  }
 }
 
 void main() {

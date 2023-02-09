@@ -10,6 +10,7 @@ class FileItem {
   bool? isStorage;
   int? fileSize;
   bool? isGallery;
+  bool? isIOSFileExplorer;
 
   FileItem(
       {this.title,
@@ -20,6 +21,7 @@ class FileItem {
         this.isStorage,
         this.fileSize,
         this.isGallery,
+        this.isIOSFileExplorer,
         this.isRecentFile});
 
   FileItem.fromJson(Map<String, dynamic> json) {
@@ -31,6 +33,7 @@ class FileItem {
     isRecentFile = json['isRecentFile'];
     isStorage = json['isStorage'];
     isGallery = json['isGallery'];
+    isIOSFileExplorer = json['isIOSFileExplorer'];
     fileSize = json['fileSize'];
   }
 
@@ -45,6 +48,7 @@ class FileItem {
     data['isStorage'] = isStorage;
     data['fileSize'] = fileSize;
     data['isGallery'] = isGallery;
+    data['isIOSFileExplorer'] = isIOSFileExplorer;
     return data;
   }
 

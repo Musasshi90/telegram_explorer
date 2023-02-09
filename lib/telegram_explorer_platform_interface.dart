@@ -35,4 +35,8 @@ abstract class TelegramExplorerPlatform extends PlatformInterface {
   Future<String?> openDirectory(FileItem fileItem) {
     throw UnimplementedError('openDirectory() has not been implemented.');
   }
+
+  Future<String?> openBrowser() {
+    throw UnimplementedError('openBrowser() has not been implemented.');
+  }
 }

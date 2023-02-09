@@ -32,4 +32,10 @@ class MethodChannelTelegramExplorer extends TelegramExplorerPlatform {
     final version = await methodChannel.invokeMethod<String>('openDirectory', params);
     return version;
   }
+
+  @override
+  Future<String?> openBrowser() async {
+    final version = await methodChannel.invokeMethod<String>('openBrowser', null);
+    return version;
+  }
 }
